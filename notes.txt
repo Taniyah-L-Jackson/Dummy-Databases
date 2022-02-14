@@ -1,0 +1,68 @@
+Character Data (used for discreet pieces of data, data broken down to its minimums)
+------------------------------------------
+Char is a fixed length;
+Varchar is a variable length;
+
+Always go up one in the data text to allow room foe expansion in tables
+Text Data: (the numbers next to the text fields are bytes)
+------------------------------
+Tinytext: 225 bytes
+Text: 65,535 bytes
+Mediumtext: 16,777,215 bytes
+Longtext: 4, 294, 967, 295 bytes
+
+Numeric data:
+(can be signed (allows both negative and positive numbers) or unsigned (allows only positive numbers)
+
+------------------------------------------
+            Signed			Unsigned 
+Tinyint: 	-128 to 127		0 to 255
+Smallint: 	-32k to 32k		0 to 65k
+Mediumint	 -8mil to 8mil		0 to 16mil
+Int 		-2bil to 2bil		0 to 4bil
+Bigint 		-9quin to -9quin 	0 to 18qin
+
+Temporal data: (dates and times)
+--------------------------
+Date		YYYY-MM-DD
+dateTime 	YYYY-MM-DD HH:MI:SS
+timestamp 	YYYY-MM-DD HH:MI:SS
+year 		YYYY
+time		HH:MI:SS
+now()		current dateTime
+
+floating point
+---------------------
+float(p,s) 1.E+38 p = how many digits total on the left and right 
+                  s = how many digits on the right of the decimal
+
+double(p,s) 1.E+308
+decimal(p,s)
+
+17.389
+float(4,2)
+17.39 // total(P) = 4 digits; on the right(S) = 2 digits; 
+
+--ALL INFO BELOW IS CALLED A C.R.U.D
+
+--CREATE 
+
+INSERT INTO people (fname, lname) VALUES ('Bob', 'Jones');
+
+-- READ (This is typically first)
+
+SELECT * FROM people;
+
+--UPDATE 
+
+UPDATE people set phone='601-321-7654', gender='M' WHERE fname='Bob';
+
+--DELETE
+
+DELETE from people WHERE fname = 'Bob';
+
+USE 'select 'column_name' from 'table_name' order by 'column_name'' to get a list of things in a certain column in an ordered format
+
+Orphan data: something deleted from the database that has no more relation to the table (NEEDS TO BE PREVENTED)
+
+Adding a 'deleted_at' column helps with keeping data that may have been accidentally deleted
