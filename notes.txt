@@ -1,3 +1,7 @@
+Opening MySql [MariaDB]:
+NOTE: cd means 'command'
+FOR THIS DUAL COMPUTER SETUP AS OF 03/07/2022: Access the mysql db by typing cd xampp\mysql\bin. then type mysql.exe -u root, NOT -u root -p
+
 Character Data (used for discreet pieces of data, data broken down to its minimums)
 ------------------------------------------
 Char is a fixed length;
