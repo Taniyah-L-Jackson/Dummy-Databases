@@ -1,4 +1,7 @@
-//Movie database in MySql
+-- //Movie database in MySql
+CREATE DATABASE movies; --creating the db
+
+USE movies; --accessing the db
 
 CREATE TABLE actors (
     id int auto_increment primary key,
@@ -17,19 +20,22 @@ CREATE TABLE genres (
     genre varchar(20)
 );
 
-//Optional Syntax (added datatypes)
+-- //Optional Syntax (added datatypes)
 
-CREATE TABLE `genres` (
-    `id` int auto_increment primary key,
-    genre varchar(20)
-);
+-- CREATE TABLE `genres` (
+--     `id` int auto_increment primary key,
+--     genre varchar(20)
+-- );
 
-//-------------------------------------
+-------------------------------------
+--Changes: 
+    --changed to int(4) in year
+    --changed movies to movie_titles
 
-CREATE TABLE movies (
+CREATE TABLE movie_titles (
     id int auto_increment primary key,
     title varchar(45),
-    year tinyint(4), //changed to int(4)
+    year tinyint(4), 
     director_id int NOT NULL,
     genre_id int NOT NULL,
     format varchar(20),
@@ -47,7 +53,8 @@ CREATE TABLE movie_actor (
     PRIMARY KEY (movie_id, actor_id)
 );
 
-MariaDB [movie_db]> select m.title from movies m 
+
+-- select m.title from movie_titles m (
     -- //get movie.title from movies table column movies
     -- -> join movie_actor ma on ma.movie_id = m.id
     -- //connect movie_actor table to movie_actor_id table where id = movie_id
@@ -56,15 +63,14 @@ MariaDB [movie_db]> select m.title from movies m
     -- -> where a.id=3;
     -- //grab from where actor.id = 3;
 
-
 select genre from genres g
-    join movies m on m.genre_id = g.id
+    join movie_titles m on m.genre_id = g.id
     join movie_actor ma on ma.movie_id = m.id
     join actors a on a.id = ma.actor_id
     where a.id=1;
 
-insert into directors(fname, lname)
-    values('Jack','West'),
+INSERT INTO directors(fname, lname)
+    VALUES('Jack','West'),
     ('Dan','West'),
     ('Samuel','Days'),
     ('Laura','Jones'),
@@ -75,8 +81,8 @@ insert into directors(fname, lname)
     ('Madeline','Syen'),
     ('Tonya','Harris');
 
-insert into actors(fname, lname)
-    values('Jack','Days'),
+INSERT INTO actors(fname, lname)
+    VALUES('Jack','Days'),
     ('Dan','Jones'),
     ('Samuel','West'),
     ('Laura','West'),
@@ -87,12 +93,19 @@ insert into actors(fname, lname)
     ('Don','Harris'),
     ('Tonya','Sven');
 
-insert into movies(title, director_id, genre_id)
-    values
-    ('Kingsman', 3, 1),
+INSERT INTO genres(genre)
+    VALUES('Horror'),
+    ("Action"), ('Mystery'),
+    ("Drama"), ("Sci-fi"),
+    ("Historical");
+
+INSERT INTO movie_titles(title, director_id, genre_id)
+    VALUES
+    ('Kingsman', 3, 2),
     ('Ajin', 4, 1),
-    ('Strong Woman Bong Soon', 9, 2),
-    ('All Quiet On The Western Front', 6, 3);
+    ('Strong Woman Bong Soon', 9, 4),
+    ('All Quiet On The Western Front', 6, 6),
+    ('Matrix', 3, 2);
 
 //-----------------------------------------------
 

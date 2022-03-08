@@ -2,6 +2,40 @@ Opening MySql [MariaDB]:
 NOTE: cd means 'command'
 FOR THIS DUAL COMPUTER SETUP AS OF 03/07/2022: Access the mysql db by typing cd xampp\mysql\bin. then type mysql.exe -u root, NOT -u root -p
 
+Make sure that your sqlDB is already in the MariaDB. Set up your js.file (look at node-mysql files for reference), then run 'npm start' in git bash (run MySql from there)
+
+If you are getting an err about your headers, make sure that your dao sql is upp to date with your primary sql, even the database name itself from the dbconfig file
+-------------------------------------------------------------------------------
+-	The -u in MySQL stands for user
+-	The -p in MySQL stands for password
+-	‘show tables’ shows tables created in Xampp
+-	‘desc temp’ or ‘create tables’ shows layout of tables
+-	‘create tables’ shows the ‘create’ statement
+-	To create a table, use create table ‘table_name’(id int, ‘first_slot_name’, varchar(amount in numbers)  {variable character}, ‘second_slot_name’ varchar(amount in numbers));
+-	To insert data into a table:
+o	Inserting fields: alter table ‘table_name’ add ‘new_table_name’ ‘int’ or’ varchar(#)’;
+o	Inserting data: insert into ‘table_name’( ‘values’ ({id of where to insert data}, {data_for_first_slot_in_tow}, {data_for_second_slot_in_row}));
+o	Multiple inserts ex: ‘insert into directors(fname,lname) values (‘John’,‘Hughes’);’
+-	The “select * from ‘table_name’” method shows all the info stored in to table name being called;
+-	The ‘*’ indicates a column that you want to display from the table called. If left as just a ‘*’, it calls all the info from that table
+-	The ‘where’ method after typing the ‘select * from ‘table_name’” is written in plain English. Just type ‘id,’ then the ‘=’ symbol, then the number of the element you want to find
+-	To do auto increment: type ‘id int auto_increment’;
+-	The ‘alter’ method modifies the table column called. Type: ‘alter table ‘table_name’ modify ‘column name’  (what_to_add) ‘primary_key’ <- the key to modify;
+-	‘when using a ‘change’ statement, you have to call the column you are changing, then what you are changing it to. Type: ‘change;
+-	Ctrl-C exits the MySQL program;
+-	 The column slots are usually called ‘fields’;
+-	The ‘set’ method changes the value of the column called followed by the id where you want to change the value. Leaving the id off changes the entire column to the new value
+-	Type: update ‘table_name’ set ‘column_name’ = ‘value’ where id = ‘id_number’;
+
+-	Data types: (table name followed by parameters, very much written like a function)
+o	Create table people ( id int auto_increment primary key,
+o	Fname varchar(20),
+o	Lname varchar(20),
+o	Ssn char(11),
+o	Age tinyint,
+o	);
+-------------------------------------------------------------------------------
+
 Character Data (used for discreet pieces of data, data broken down to its minimums)
 ------------------------------------------
 Char is a fixed length;
